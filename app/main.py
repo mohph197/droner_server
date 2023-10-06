@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from threading import Thread
 import schedule
+from time import sleep
 
 load_dotenv()
 
@@ -15,7 +16,12 @@ thread = Thread(target=start_real_time_data_capture)
 thread.start()
 start_battery_check()
 
-schedule_thread = Thread(target=schedule.run_pending)
+def loop_schedule():
+    while True:
+        schedule.run_pending()
+        sleep(1)
+
+schedule_thread = Thread(target=loop_schedule)
 schedule_thread.start()
 
 app = start_fastapi_webserver()
