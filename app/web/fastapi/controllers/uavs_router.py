@@ -14,7 +14,7 @@ from app.components.uavs.missions.models.schedule_mission import (
     ScheduleMissionRequest,
 )
 from app.components.uavs.missions.models.mission import Mission
-from droner_server.app.components.uavs.get_alerts import get_alerts
+from app.components.uavs.get_alerts import get_alerts
 
 
 router = APIRouter(prefix="/uavs", tags=["uavs"])

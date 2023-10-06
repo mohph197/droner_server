@@ -3,6 +3,10 @@ from dotenv import load_dotenv
 import schedule
 from threading import Thread
 
+from app.components.uavs.missions.init_missions_scheduler import (
+    start_missions_statuses_check,
+)
+
 
 load_dotenv()
 
@@ -14,9 +18,10 @@ from app.components.real_time_data_capture.mqtt_events_capture import (
     start_real_time_data_capture,
 )
 
-# start_real_time_data_capture()
+start_real_time_data_capture()
 
-# start_battery_check()
+start_battery_check()
+start_missions_statuses_check()
 
 
 def setup_schduler():

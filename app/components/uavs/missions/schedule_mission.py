@@ -10,8 +10,6 @@ from .models.schedule_mission import ScheduleMissionRequest
 
 
 def schedule_mission(request: ScheduleMissionRequest):
-    # TODO:check that the uav exists
-
     collection = mongodb["missions"]
 
     assigned_missions = list(
@@ -40,8 +38,11 @@ def schedule_mission(request: ScheduleMissionRequest):
         "record_video": request.record_video,
         "avg_speed": request.avg_speed,
         "status": "pending",
-        "status_reason": "First Created",
+        "success": False,
         "distane": distance,
+        "real_starting_date": None,
+        "completion_date": None,
+        "reaching_destination_date": None,
         "estimated_duration_in_hours": round(distance / request.avg_speed, 2),
         "created_at": datetime.now(),
         "updated_at": datetime.now(),
@@ -62,8 +63,3 @@ def _calculate_distnace_in_km(p1: Point, p2: Point):
         )
         * 6371
     )
-
-
-# check periodically if the mission should started (check that the uav can fly in the wiether conditions that time)
-# invoke a start in that case
-# check periodically if the mission is completed, and send a notification in that case

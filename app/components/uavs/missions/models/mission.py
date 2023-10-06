@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Union
 from pydantic import BaseModel
 
 from app.components.uavs.missions.models.point import Point
@@ -15,9 +16,12 @@ class Mission(BaseModel):
     record_video: bool
     started: bool
     avg_speed: float
-    status: str  #  "pending" | "started" | "completed" | "postponed" | "failed" | "reached_destination" | "returning_to_starting"
-    status_reason: str
+    status: str  #  "pending" | "going to destination" | "completed" | "reached destination" | "returning to starting"
+    success: bool
     distance: float
+    real_starting_date: Union[datetime, None]
+    reaching_destination_date: Union[datetime, None]
+    completion_date: Union[datetime, None]
     estimated_duration_in_hours: float
     created_at: datetime
     updated_at: datetime
