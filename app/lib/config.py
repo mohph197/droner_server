@@ -1,6 +1,11 @@
 import os
 from typing import TypedDict
 
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
 
 class _Env(TypedDict):
     MONGODB_URI: str

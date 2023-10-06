@@ -25,7 +25,7 @@ async def get_uavs():
     return list_uavs()
 
 
-@router.get("/:uav", summary="Get Latest UAV Data")
+@router.get("/{uav}", summary="Get Latest UAV Data")
 async def get_uavs(uav: str):
     return get_uav_data(uav)
 

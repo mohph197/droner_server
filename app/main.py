@@ -1,5 +1,3 @@
-from dotenv import load_dotenv
-
 import schedule
 from threading import Thread
 
@@ -7,8 +5,6 @@ from app.components.uavs.missions.init_missions_scheduler import (
     start_missions_statuses_check,
 )
 
-
-load_dotenv()
 
 from app.web.fastapi.main import start_fastapi_webserver
 
