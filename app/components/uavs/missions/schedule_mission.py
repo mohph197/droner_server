@@ -49,7 +49,9 @@ def schedule_mission(request: ScheduleMissionRequest):
 
     collection.insert_one(mission)
 
-    return {"id": mission.id}
+    del mission["_id"]
+
+    return mission
 
 
 def _calculate_distnace_in_km(p1: Point, p2: Point):
