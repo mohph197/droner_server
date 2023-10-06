@@ -14,9 +14,9 @@ from app.components.real_time_data_capture.mqtt_events_capture import (
     start_real_time_data_capture,
 )
 
-start_real_time_data_capture()
+# start_real_time_data_capture()
 
-start_battery_check()
+# start_battery_check()
 
 
 def setup_schduler():
