@@ -1,3 +1,4 @@
+from datetime import datetime
 import schedule
 
 from app.lib.mongodb import mongodb
@@ -13,6 +14,15 @@ def check_battery_stats(uav):
 
     if voltage_level < 5.0:
         send_notification(uav, "battery_low", voltage_level)
+        mongodb["alers"].insert_one(
+            {
+                "topic": uav,
+                "event": "battery_low",
+                "data": voltage_level,
+                "seen": False,
+                "created_at": datetime.now(),
+            }
+        )
 
 
 def start_battery_check():
