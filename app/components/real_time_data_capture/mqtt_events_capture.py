@@ -3,8 +3,6 @@ import paho.mqtt.client as mqtt
 from app.lib.config import app_config
 from app.lib.mongodb import mongodb
 
-client = mqtt.Client()
-
 
 def _on_connect(client, userdata, flags, rc):
     client.subscribe("uav1/bat/id")
@@ -45,7 +43,7 @@ def _on_message(client, userdata, msg):
     topic = msg.topic
     data = msg.payload.decode()
 
-    if data is '{"1":"Hello world","2":"Welcome to the test connection"}':
+    if data == '{"1":"Hello world","2":"Welcome to the test connection"}':
         return
 
     chunks = topic.split("/")
@@ -66,6 +64,9 @@ def _on_message(client, userdata, msg):
 
 def start_real_time_data_capture():
     print("Starting Real Time Data Capture")
+
+    client = mqtt.Client()
+
     client.on_connect = _on_connect
     client.on_message = _on_message
 
@@ -77,7 +78,3 @@ def start_real_time_data_capture():
     )
 
     client.loop_start()
-
-
-def stop_real_time_data_capture():
-    client.loop_stop(force=True)
