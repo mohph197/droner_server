@@ -8,6 +8,11 @@ from app.components.uavs.control_data_streaming import (
     start_data_streaming,
     stop_data_streaming,
 )
+from droner_server.app.components.uavs.missions import get_missions
+from droner_server.app.components.uavs.missions.schedule_mission import schedule_mission
+from droner_server.app.components.uavs.missions.models.schedule_mission import (
+    ScheduleMissionRequest,
+)
 
 
 router = APIRouter(prefix="/uavs", tags=["uavs"])
@@ -34,8 +39,22 @@ async def start_data_streaming_end_point(body: StartStreamingRequest):
     return start_data_streaming(body.uavs)
 
 
+class StopStreamingRequest(BaseModel):
+    uavs: List[str]
+
+
 @router.post(
     "/data_streaming/stop", summary="Stop Streaming the Latest UAV Data in Real Time"
 )
-async def stop_data_streaming_end_point(uavs: List[str]):
-    return stop_data_streaming(uavs)
+async def stop_data_streaming_end_point(body: StopStreamingRequest):
+    return stop_data_streaming(body.uavs)
+
+
+@router.post("/missions", summary="Create mission")
+async def create_mission(body: ScheduleMissionRequest):
+    return schedule_mission(body)
+
+
+@router.get("/missions", summary="Get missions")
+async def list_missions():
+    return get_missions()

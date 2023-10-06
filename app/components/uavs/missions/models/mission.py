@@ -2,10 +2,11 @@ from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel
 
-from droner_server.app.components.uavs.models.point import Point
+from app.components.uavs.missions.models.point import Point
 
 
 class Mission(BaseModel):
+    id: str
     uav: str
     name: str
     desc: str
@@ -15,6 +16,7 @@ class Mission(BaseModel):
     record_video: bool
     started: bool
     avg_speed: float
-    status: str  #  "started" | "completed" | "postponed" | "failed" | "reached_destination" | "returning_to_starting"
+    status: str  #  "pending" | "started" | "completed" | "postponed" | "failed" | "reached_destination" | "returning_to_starting"
     status_reason: str
+    distance: float
     estimated_duration_in_hours: float
