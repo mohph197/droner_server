@@ -80,4 +80,4 @@ def start_real_time_data_capture():
 
 
 def stop_real_time_data_capture():
-    client.loop_stop()
+    client.loop_stop(force=True)

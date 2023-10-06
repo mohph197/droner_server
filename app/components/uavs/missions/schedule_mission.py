@@ -1,5 +1,6 @@
+from datetime import datetime
 import math
-from turtle import distance
+
 from uuid import uuid4
 
 
@@ -22,7 +23,7 @@ def schedule_mission(request: ScheduleMissionRequest):
         }
     )
 
-    if len(assigned_missions) is not 0:
+    if len(assigned_missions) != 0:
         raise ValueError("UAV is already assigned to a mission at that time")
 
     distance = _calculate_distnace_in_km(request.start_point, request.destination_point)
@@ -41,6 +42,8 @@ def schedule_mission(request: ScheduleMissionRequest):
         "status_reason": "First Created",
         "distane": distance,
         "estimated_duration_in_hours": round(distance / request.avg_speed, 2),
+        "created_at": datetime(),
+        "updated_at": datetime(),
     }
 
     collection.insert_one(mission)

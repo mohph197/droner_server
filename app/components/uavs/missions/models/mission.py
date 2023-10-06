@@ -1,5 +1,4 @@
 from datetime import datetime
-from typing import Optional
 from pydantic import BaseModel
 
 from app.components.uavs.missions.models.point import Point
@@ -20,3 +19,5 @@ class Mission(BaseModel):
     status_reason: str
     distance: float
     estimated_duration_in_hours: float
+    created_at: datetime
+    updated_at: datetime

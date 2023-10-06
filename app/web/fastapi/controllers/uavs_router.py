@@ -13,6 +13,7 @@ from app.components.uavs.missions.schedule_mission import schedule_mission
 from app.components.uavs.missions.models.schedule_mission import (
     ScheduleMissionRequest,
 )
+from app.components.uavs.missions.models.mission import Mission
 
 
 router = APIRouter(prefix="/uavs", tags=["uavs"])
@@ -56,5 +57,5 @@ async def create_mission(body: ScheduleMissionRequest):
 
 
 @router.get("/missions", summary="Get missions")
-async def list_missions():
+async def list_missions() -> List[Mission]:
     return get_missions()
