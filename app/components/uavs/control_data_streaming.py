@@ -73,3 +73,4 @@ def stop_data_streaming(uavs):
         for job in _streaming_job:
             if job is not None:
                 schedule.cancel_job(job)
+                _streaming_job.remove(job)
