@@ -2,10 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.lib.broadcaster import send_notification
 
+from .controllers.main_router import router as main_rounter
+
 
 def start_fastapi_webserver() -> FastAPI:
     app = FastAPI(
-        title="Big Mama Assignment API",
+        title="Fleet Management System API",
         docs_url="/api/docs/swagger",
         redoc_url="/api/docs/redoc",
         openapi_url="/api/docs/openapi.json",
@@ -22,12 +24,10 @@ def start_fastapi_webserver() -> FastAPI:
         allow_headers=["*"],
     )
 
-    # app.include_router(main_router)
+    app.include_router(main_rounter)
 
     @app.get("/", summary="Api Summary", tags=["api"])
     async def summary():
-        send_notification("my-event", {"message": "Hello World"})
-
         return {
             "message": "Hello From Fleet Management API",
             "swagger": "/api/docs/swagger",

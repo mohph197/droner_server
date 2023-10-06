@@ -43,6 +43,9 @@ def _on_message(client, userdata, msg):
     topic = msg.topic
     data = msg.payload.decode()
 
+    if data is '{"1":"Hello world","2":"Welcome to the test connection"}':
+        return
+
     chunks = topic.split("/")
 
     uav = chunks[0]
@@ -65,7 +68,6 @@ def start_real_time_data_capture():
     client.on_connect = _on_connect
     client.on_message = _on_message
 
-    print(app_config)
     client.connect(
         app_config["env"]["MQTT_BROKER"],
         app_config["env"]["MQTT_BROKER_PORT"],
