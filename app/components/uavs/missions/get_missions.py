@@ -1,7 +1,7 @@
-from app.lib import mongodb
+from app.lib.mongodb import mongodb
 
 
-def get_mission():
+def get_missions():
     collection = mongodb["missions"]
 
     return collection.find()

@@ -1,13 +1,17 @@
 import schedule
 
 from app.lib.broadcaster import send_notification
-from app.components.uavs import get_uav_data
+from app.components.uavs.get_uav_data import get_uav_data
 
 
 def _send_data_of(uav):
     data = get_uav_data(uav)
 
+    print("sending", data)
+
     send_notification(uav, "data_updated", data)
+
+    print("sent")
 
 
 _streaming_jobs = {}

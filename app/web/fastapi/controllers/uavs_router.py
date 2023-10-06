@@ -2,13 +2,13 @@ from typing import List
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from app.components.uavs import list_uavs
-from app.components.uavs import get_uav_data
+from app.components.uavs.list_uavs import list_uavs
+from app.components.uavs.get_uav_data import get_uav_data
 from app.components.uavs.control_data_streaming import (
     start_data_streaming,
     stop_data_streaming,
 )
-from app.components.uavs.missions import get_missions
+from app.components.uavs.missions.get_missions import get_missions
 from app.components.uavs.missions.schedule_mission import schedule_mission
 from app.components.uavs.missions.models.schedule_mission import (
     ScheduleMissionRequest,
