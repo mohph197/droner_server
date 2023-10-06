@@ -3,9 +3,9 @@ from turtle import distance
 from uuid import uuid4
 
 
-from droner_server.app.components.uavs.missions.models.mission import Mission
-from droner_server.app.components.uavs.missions.models.point import Point
-from droner_server.app.lib import mongodb
+from app.components.uavs.missions.models.mission import Mission
+from app.components.uavs.missions.models.point import Point
+from app.lib import mongodb
 from .models.schedule_mission import ScheduleMissionRequest
 
 

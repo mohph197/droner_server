@@ -8,9 +8,9 @@ from app.components.uavs.control_data_streaming import (
     start_data_streaming,
     stop_data_streaming,
 )
-from droner_server.app.components.uavs.missions import get_missions
-from droner_server.app.components.uavs.missions.schedule_mission import schedule_mission
-from droner_server.app.components.uavs.missions.models.schedule_mission import (
+from app.components.uavs.missions import get_missions
+from app.components.uavs.missions.schedule_mission import schedule_mission
+from app.components.uavs.missions.models.schedule_mission import (
     ScheduleMissionRequest,
 )
 

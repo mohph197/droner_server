@@ -5,6 +5,7 @@ from app.lib.mongodb import mongodb
 
 client = mqtt.Client()
 
+
 def _on_connect(client, userdata, flags, rc):
     client.subscribe("uav1/bat/id")
     client.subscribe("uav2/bat/id")
@@ -64,7 +65,7 @@ def _on_message(client, userdata, msg):
 
 
 def start_real_time_data_capture():
-    print('Starting Real Time Data Capture')
+    print("Starting Real Time Data Capture")
     client.on_connect = _on_connect
     client.on_message = _on_message
 
@@ -76,6 +77,7 @@ def start_real_time_data_capture():
     )
 
     client.loop_start()
+
 
 def stop_real_time_data_capture():
     client.loop_stop()

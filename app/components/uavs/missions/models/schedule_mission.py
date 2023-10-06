@@ -2,7 +2,7 @@ import datetime
 from typing import Optional
 from pydantic import BaseModel
 
-from droner_server.app.components.uavs.missions.models.point import Point
+from app.components.uavs.missions.models.point import Point
 
 
 class ScheduleMissionRequest(BaseModel):
