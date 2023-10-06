@@ -43,6 +43,7 @@ def schedule_mission(request: ScheduleMissionRequest):
         "real_starting_date": None,
         "completion_date": None,
         "reaching_destination_date": None,
+        "actual_duration_in_hours": None,
         "estimated_duration_in_hours": round(distance / request.avg_speed, 2),
         "created_at": datetime.now(),
         "updated_at": datetime.now(),

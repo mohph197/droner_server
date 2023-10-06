@@ -16,12 +16,13 @@ class Mission(BaseModel):
     record_video: bool
     started: bool
     avg_speed: float
-    status: str  #  "pending" | "going to destination" | "completed" | "reached destination" | "returning to starting"
+    status: str  #  "pending" | "going to starting" | "going to destination" | "completed" | "reached destination" | "returning to starting"
     success: bool
     distance: float
     real_starting_date: Union[datetime, None]
     reaching_destination_date: Union[datetime, None]
     completion_date: Union[datetime, None]
     estimated_duration_in_hours: float
+    actual_duration_in_hours: Union[float, None]
     created_at: datetime
     updated_at: datetime
