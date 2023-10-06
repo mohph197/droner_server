@@ -3,6 +3,7 @@ import paho.mqtt.client as mqtt
 from app.lib.config import app_config
 from app.lib.mongodb import mongodb
 
+client = mqtt.Client()
 
 def _on_connect(client, userdata, flags, rc):
     client.subscribe("uav1/bat/id")
@@ -63,8 +64,7 @@ def _on_message(client, userdata, msg):
 
 
 def start_real_time_data_capture():
-    client = mqtt.Client()
-
+    print('Starting Real Time Data Capture')
     client.on_connect = _on_connect
     client.on_message = _on_message
 
@@ -75,4 +75,7 @@ def start_real_time_data_capture():
         bind_port=app_config["env"]["MQTT_BROKER_PORT"],
     )
 
-    client.loop_forever()
+    client.loop_start()
+
+def stop_real_time_data_capture():
+    client.loop_stop()
