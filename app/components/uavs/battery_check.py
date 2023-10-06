@@ -20,6 +20,5 @@ def check_battery_stats(uav):
 def start_battery_check():
     uavs = mongodb["bat"].distinct("uav")
 
-    schedule.every(1).seconds.do(lambda: print("test"))
     for uav in uavs:
         schedule.every(1).minutes.do(lambda: check_battery_stats(uav))
