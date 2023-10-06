@@ -4,15 +4,21 @@ from app.lib.broadcaster import send_notification
 from app.components.uavs.get_uav_data import get_uav_data
 
 last_location = {
-    'lat': 51.505,
-    'lon': -0.09,
+    'uav1': {
+        'lat': 51.505,
+        'lon': -0.09,
+    },
+    'uav2': {
+        'lat': 51.505,
+        'lon': -0.09,
+    },
 }
 
 def _send_data_of(uav):
     # data = get_uav_data(uav)
 
-    last_location['lat'] += 0.001
-    last_location['lon'] += 0.001
+    last_location[uav]['lat'] += 0.002 if uav == 'uav1' else -0.001
+    last_location[uav]['lon'] += 0.002 if uav == 'uav2' else -0.001
 
     data = {
         'status': {
@@ -26,32 +32,33 @@ def _send_data_of(uav):
             'power_supply_status': 1.1
         },
         'gps': {
-            'lat': last_location['lat'],
-            'lon': last_location['lon'],
+            'lat': last_location[uav]['lat'],
+            'lon': last_location[uav]['lon'],
             'abs': 1.1,
             'satellites_number': 1
         }
     }
 
     print("sending data of:", uav)
+    print(data['gps'])
 
     send_notification(uav, "data_updated", data)
 
     print("sent")
 
+def _send_data_of_uavs(uavs):
+    for uav in uavs:
+        _send_data_of(uav)
 
-_streaming_jobs = {}
-
+_streaming_jobs = []
 
 def start_data_streaming(uavs):
     print(f'Requested UAVs: {uavs}')
-    for uav in uavs:
-        job = schedule.every(1).seconds.do(lambda: _send_data_of(uav))
-
-        _streaming_jobs[uav] = job
+    job = schedule.every(1).seconds.do(lambda: _send_data_of_uavs(uavs))
+    _streaming_jobs.append(job)
 
 
 def stop_data_streaming(uavs):
-    for uav in uavs:
-        if _streaming_jobs[uav] is not None:
-            schedule.cancel_job(_streaming_jobs[uav])
+    for schedule_job in _streaming_jobs:
+        if schedule_job is not None:
+            schedule.cancel_job(schedule_job)
