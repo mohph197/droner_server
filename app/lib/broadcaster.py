@@ -1,9 +1,10 @@
 import pusher
+from app.lib.config import app_config
 
 _pusher_client = pusher.Pusher(
-    app_id="1682651",
-    key="36d49d87aa68e5eaf8d6",
-    secret="31b80ae4113ab60aece1",
+    app_id=app_config["env"]["PUSHER_APP_ID"],
+    key=app_config["env"]["PUSHER_APP_KEY"],
+    secret=app_config["env"]["PUSHER_APP_SECRET"],
     cluster="eu",
     ssl=True,
 )

@@ -93,7 +93,7 @@ def get_uav_data(uav):
     gps["fx"] = int(last_doc["data"])
 
     return {
-        "rtc": "ws://13.38.173.241:3333/app/" + "1" if uav is "uav1" else "2",
+        "rtc": "ws://13.38.173.241:3333/app/" + uav.split("uav")[1],
         "status": status,
         "battery": battery,
         "gps": gps,
