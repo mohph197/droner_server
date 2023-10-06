@@ -4,9 +4,8 @@ import math
 from uuid import uuid4
 
 
-from app.components.uavs.missions.models.mission import Mission
 from app.components.uavs.missions.models.point import Point
-from app.lib import mongodb
+from app.lib.mongodb import mongodb
 from .models.schedule_mission import ScheduleMissionRequest
 
 
@@ -15,12 +14,14 @@ def schedule_mission(request: ScheduleMissionRequest):
 
     collection = mongodb["missions"]
 
-    assigned_missions = collection.find(
-        {
-            "uav": request.uav,
-            "start_date": {"$lte": request.start_date},
-            "status": {"$ne": "completed"},
-        }
+    assigned_missions = list(
+        collection.find(
+            {
+                "uav": request.uav,
+                "start_date": {"$lte": request.start_date},
+                "status": {"$ne": "completed"},
+            }
+        )
     )
 
     if len(assigned_missions) != 0:
@@ -28,13 +29,13 @@ def schedule_mission(request: ScheduleMissionRequest):
 
     distance = _calculate_distnace_in_km(request.start_point, request.destination_point)
 
-    mission: Mission = {
-        "id": uuid4(),
+    mission = {
+        "id": str(uuid4()),
         "uav": request.uav,
         "name": request.name,
         "desc": request.desc,
-        "starting_point": request.start_point,
-        "destination_point": request.destination_point,
+        "starting_point": request.start_point.model_dump(),
+        "destination_point": request.destination_point.model_dump(),
         "start_date": request.start_date,
         "record_video": request.record_video,
         "avg_speed": request.avg_speed,
@@ -42,13 +43,13 @@ def schedule_mission(request: ScheduleMissionRequest):
         "status_reason": "First Created",
         "distane": distance,
         "estimated_duration_in_hours": round(distance / request.avg_speed, 2),
-        "created_at": datetime(),
-        "updated_at": datetime(),
+        "created_at": datetime.now(),
+        "updated_at": datetime.now(),
     }
 
     collection.insert_one(mission)
 
-    return mission
+    return {"id": mission.id}
 
 
 def _calculate_distnace_in_km(p1: Point, p2: Point):

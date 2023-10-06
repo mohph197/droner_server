@@ -1,6 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.lib.broadcaster import send_notification
+from app.web.fastapi.utils.exception_handler_middleware import (
+    ExceptionHandlerMiddleware,
+)
 
 from .controllers.main_router import router as main_rounter
 
@@ -13,6 +16,8 @@ def start_fastapi_webserver() -> FastAPI:
         openapi_url="/api/docs/openapi.json",
         version="0.1.0",
     )
+
+    app.add_middleware(ExceptionHandlerMiddleware)
 
     origins = ["*"]
 

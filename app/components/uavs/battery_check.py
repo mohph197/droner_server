@@ -1,6 +1,7 @@
+import schedule
+
 from app.lib.mongodb import mongodb
 from app.lib.broadcaster import send_notification
-import schedule
 
 
 def check_battery_stats(uav):
