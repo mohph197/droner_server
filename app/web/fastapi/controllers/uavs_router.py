@@ -25,11 +25,6 @@ async def get_uavs():
     return list_uavs()
 
 
-@router.get("/{uav}", summary="Get Latest UAV Data")
-async def get_uavs(uav: str):
-    return get_uav_data(uav)
-
-
 class StartStreamingRequest(BaseModel):
     uavs: List[str]
 
@@ -65,3 +60,8 @@ async def list_missions() -> List[Mission]:
 @router.get("/alerts", summary="Get alerts")
 async def list_alerts():
     return get_alerts()
+
+
+@router.get("/{uav}", summary="Get Latest UAV Data")
+async def get_uavs(uav: str):
+    return get_uav_data(uav)
