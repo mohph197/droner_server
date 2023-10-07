@@ -38,8 +38,6 @@ def _on_connect(client, userdata, flags, rc):
 
 
 def _on_message(client, userdata, msg):
-    # print(msg.topic, " : ", msg.payload.decode())
-
     topic = msg.topic
     data = msg.payload.decode()
 

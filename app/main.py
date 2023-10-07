@@ -13,9 +13,13 @@ from app.components.uavs.battery_check import start_battery_check
 from app.components.real_time_data_capture.mqtt_events_capture import (
     start_real_time_data_capture,
 )
+from app.components.uavs.fake_uavs_data_filler import (
+    start_fake_uavs_data_filling,
+)
 
 start_real_time_data_capture()
 
+start_fake_uavs_data_filling()
 start_battery_check()
 start_missions_statuses_check()
 
