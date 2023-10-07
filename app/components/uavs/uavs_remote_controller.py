@@ -8,6 +8,7 @@ def goto(target_uav: str, destination: Point, speed: int):
         return
 
     fake_data[target_uav]["in_air"]["value"] = True
+    fake_data[target_uav]["bat"]["vl"]["next_value_diff"] = -0.001
     fake_data[target_uav]["bat"]["gps"]["lat"]["next_value_diff"] = (
         destination.lat - fake_data[target_uav]["bat"]["gps"]["lat"]["value"]
     ) / (speed * 10)
