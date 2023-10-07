@@ -79,3 +79,4 @@ def start_real_time_data_capture():
         client.loop_start()
     except:
         print("Could not connect to MQTT Broker")
+        pass

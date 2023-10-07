@@ -80,11 +80,11 @@ fake_data = {
         "gps": {
             "lat": {
                 "value": -1.01,
-                "next_value_diff": 0.01,
+                "next_value_diff": 1.01,
             },
             "lon": {
                 "value": 0.01,
-                "next_value_diff": -0.03,
+                "next_value_diff": -1.03,
             },
             "abs": {
                 "value": 10,
@@ -174,11 +174,11 @@ fake_data = {
         "gps": {
             "lat": {
                 "value": -12.001,
-                "next_value_diff": 0.001,
+                "next_value_diff": 0.1,
             },
             "lon": {
                 "value": 12.0001,
-                "next_value_diff": -0.001,
+                "next_value_diff": -0.9,
             },
             "abs": {
                 "value": 10,
@@ -225,7 +225,7 @@ fake_data = {
             },
             "lon": {
                 "value": 4.0001,
-                "next_value_diff": -0.004,
+                "next_value_diff": -0.4,
             },
             "abs": {
                 "value": 10,
