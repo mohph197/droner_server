@@ -18,7 +18,7 @@ fake_data = {
             },
             "vl": {
                 "value": 20,
-                "next_value_diff": -0.0001,
+                "next_value_diff": -0.01,
             },
         },
         "armed": {
@@ -65,7 +65,7 @@ fake_data = {
             },
             "vl": {
                 "value": 15,
-                "next_value_diff": -0.001,
+                "next_value_diff": -0.01,
             },
         },
         "armed": {
@@ -80,7 +80,7 @@ fake_data = {
         "gps": {
             "lat": {
                 "value": -1.1,
-                "next_value_diff": 0.001,
+                "next_value_diff": 0.09,
             },
             "lon": {
                 "value": 0.1,
@@ -112,7 +112,7 @@ fake_data = {
             },
             "vl": {
                 "value": 12,
-                "next_value_diff": -0.001,
+                "next_value_diff": -0.007,
             },
         },
         "armed": {
@@ -127,11 +127,11 @@ fake_data = {
         "gps": {
             "lat": {
                 "value": -0.001,
-                "next_value_diff": 0.0003,
+                "next_value_diff": 0.003,
             },
             "lon": {
                 "value": 15.0001,
-                "next_value_diff": -0.0001,
+                "next_value_diff": -0.001,
             },
             "abs": {
                 "value": 10,
@@ -159,7 +159,7 @@ fake_data = {
             },
             "vl": {
                 "value": 25,
-                "next_value_diff": -0.00001,
+                "next_value_diff": -0.01,
             },
         },
         "armed": {
@@ -174,11 +174,11 @@ fake_data = {
         "gps": {
             "lat": {
                 "value": -12.001,
-                "next_value_diff": 0.0001,
+                "next_value_diff": 0.001,
             },
             "lon": {
                 "value": 12.0001,
-                "next_value_diff": -0.0001,
+                "next_value_diff": -0.001,
             },
             "abs": {
                 "value": 10,

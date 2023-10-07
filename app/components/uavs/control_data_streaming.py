@@ -31,8 +31,9 @@ def _send_data_of(uav):
     #         "satellites_number": 1,
     #     },
     # }
-
+    print("sending", data)
     send_notification(uav, "data_updated", data)
+    print("sent")
 
 
 def _send_data_of_uavs():
