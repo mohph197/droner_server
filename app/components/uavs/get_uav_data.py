@@ -13,7 +13,13 @@ def get_uav_data(uav):
     last_doc = list(
         mongodb["in_air"].find({"uav": uav}).sort("timestamp", -1).limit(1)
     )[0]
-    status["in_air"] = True if last_doc["data"] == "True" else False
+    status["in_air"] = (
+        True
+        if last_doc["data"] == "True"
+        or last_doc["data"] == "1"
+        or last_doc["data"] == True
+        else False
+    )
 
     last_doc = list(mongodb["state"].find({"uav": uav}).sort("timestamp", -1).limit(1))[
         0

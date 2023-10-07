@@ -75,7 +75,7 @@ fake_data = {
             "value": "4",
         },
         "in_air": {
-            "value": False,
+            "value": True,
         },
         "gps": {
             "lat": {
@@ -122,7 +122,7 @@ fake_data = {
             "value": "4",
         },
         "in_air": {
-            "value": False,
+            "value": True,
         },
         "gps": {
             "lat": {
