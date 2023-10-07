@@ -79,11 +79,11 @@ fake_data = {
         },
         "gps": {
             "lat": {
-                "value": -1.1,
+                "value": -1.01,
                 "next_value_diff": 0.01,
             },
             "lon": {
-                "value": 0.1,
+                "value": 0.01,
                 "next_value_diff": -0.03,
             },
             "abs": {
