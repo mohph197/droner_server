@@ -8,10 +8,24 @@ from app.lib.mongodb import mongodb
 fake_data = {
     "uav3": {
         "bat": {
+            "id": {
+                "value": 1,
+                "next_value_diff": 0,
+            },
+            "pt": {
+                "value": 3,
+                "next_value_diff": 0,
+            },
             "vl": {
                 "value": 20,
                 "next_value_diff": -0.0001,
             },
+        },
+        "armed": {
+            "value": False,
+        },
+        "state": {
+            "value": "4",
         },
         "in_air": {
             "value": True,
@@ -25,14 +39,40 @@ fake_data = {
                 "value": 1.1,
                 "next_value_diff": -0.003,
             },
+            "abs": {
+                "value": 10,
+                "next_value_diff": 0,
+            },
+            "ns": {
+                "value": 3,
+                "next_value_diff": 0,
+            },
+            "fx": {
+                "value": 19,
+                "next_value_diff": 0,
+            },
         },
     },
     "uav4": {
         "bat": {
+            "id": {
+                "value": 1,
+                "next_value_diff": 0,
+            },
+            "pt": {
+                "value": 3,
+                "next_value_diff": 0,
+            },
             "vl": {
                 "value": 15,
                 "next_value_diff": -0.001,
             },
+        },
+        "armed": {
+            "value": True,
+        },
+        "state": {
+            "value": "4",
         },
         "in_air": {
             "value": False,
@@ -46,14 +86,40 @@ fake_data = {
                 "value": 0.1,
                 "next_value_diff": -0.001,
             },
+            "abs": {
+                "value": 10,
+                "next_value_diff": 0,
+            },
+            "ns": {
+                "value": 3,
+                "next_value_diff": 0,
+            },
+            "fx": {
+                "value": 19,
+                "next_value_diff": 0,
+            },
         },
     },
     "uav5": {
         "bat": {
+            "id": {
+                "value": 1,
+                "next_value_diff": 0,
+            },
+            "pt": {
+                "value": 3,
+                "next_value_diff": 0,
+            },
             "vl": {
                 "value": 12,
                 "next_value_diff": -0.001,
             },
+        },
+        "armed": {
+            "value": True,
+        },
+        "state": {
+            "value": "4",
         },
         "in_air": {
             "value": False,
@@ -67,14 +133,40 @@ fake_data = {
                 "value": 15.0001,
                 "next_value_diff": -0.0001,
             },
+            "abs": {
+                "value": 10,
+                "next_value_diff": 0,
+            },
+            "ns": {
+                "value": 3,
+                "next_value_diff": 0,
+            },
+            "fx": {
+                "value": 19,
+                "next_value_diff": 0,
+            },
         },
     },
     "uav6": {
         "bat": {
+            "id": {
+                "value": 1,
+                "next_value_diff": 0,
+            },
+            "pt": {
+                "value": 3,
+                "next_value_diff": 0,
+            },
             "vl": {
                 "value": 25,
                 "next_value_diff": -0.00001,
             },
+        },
+        "armed": {
+            "value": False,
+        },
+        "state": {
+            "value": "4",
         },
         "in_air": {
             "value": True,
@@ -88,14 +180,40 @@ fake_data = {
                 "value": 12.0001,
                 "next_value_diff": -0.0001,
             },
+            "abs": {
+                "value": 10,
+                "next_value_diff": 0,
+            },
+            "ns": {
+                "value": 3,
+                "next_value_diff": 0,
+            },
+            "fx": {
+                "value": 19,
+                "next_value_diff": 0,
+            },
         },
     },
     "uav7": {
         "bat": {
+            "id": {
+                "value": 1,
+                "next_value_diff": 0,
+            },
+            "pt": {
+                "value": 3,
+                "next_value_diff": 0,
+            },
             "vl": {
                 "value": 22,
                 "next_value_diff": -0.001,
             },
+        },
+        "armed": {
+            "value": False,
+        },
+        "state": {
+            "value": "4",
         },
         "in_air": {
             "value": True,
@@ -108,6 +226,18 @@ fake_data = {
             "lon": {
                 "value": 4.0001,
                 "next_value_diff": -0.004,
+            },
+            "abs": {
+                "value": 10,
+                "next_value_diff": 0,
+            },
+            "ns": {
+                "value": 3,
+                "next_value_diff": 0,
+            },
+            "fx": {
+                "value": 19,
+                "next_value_diff": 0,
             },
         },
     },
