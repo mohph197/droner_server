@@ -53,7 +53,7 @@ async def create_mission(body: ScheduleMissionRequest):
 
 
 @router.get("/missions", summary="Get missions")
-async def list_missions() -> List[Mission]:
+async def list_missions():
     return get_missions()
 
 

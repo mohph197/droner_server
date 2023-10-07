@@ -9,7 +9,7 @@ from app.components.uavs.get_uav_data import get_uav_data
 
 
 def start_missions_statuses_check():
-    schedule.every(1).minutes.do(_job)
+    schedule.every(10).seconds.do(_job)
 
 
 def _job():
@@ -34,7 +34,11 @@ def _check_missions_that_should_start():
     for mission in missions:
         missions_of_same_uav_that_are_still_not_completed = list(
             mongodb["missions"].find(
-                {"uav": mission["uav"], "status": {"$ne": "completed"}}
+                {
+                    "uav": mission["uav"],
+                    "id": {"$ne": mission["id"]},
+                    "status": {"$ne": "completed"},
+                }
             )
         )
 
@@ -181,7 +185,7 @@ def _complete_mission(mission):
     uavs_remote_controller.land(mission["uav"])
 
     datenow = datetime.now()
-    real_starting_date = datetime(mission["real_starting_date"])
+    real_starting_date = mission["real_starting_date"]
 
     diff = datenow - real_starting_date
 
@@ -192,6 +196,7 @@ def _complete_mission(mission):
         {
             "$set": {
                 "status": "completed",
+                "success": True,
                 "completion_date": datenow,
                 "actual_duration_in_hours": actual_duration_in_hours,
             }

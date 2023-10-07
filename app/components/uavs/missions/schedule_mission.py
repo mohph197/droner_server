@@ -36,6 +36,7 @@ def schedule_mission(request: ScheduleMissionRequest):
         "destination_point": request.destination_point.model_dump(),
         "start_date": request.start_date,
         "record_video": request.record_video,
+        "should_return": request.should_return,
         "avg_speed": request.avg_speed,
         "status": "pending",
         "success": False,
