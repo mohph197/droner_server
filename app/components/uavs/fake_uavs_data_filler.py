@@ -18,7 +18,7 @@ fake_data = {
             },
             "vl": {
                 "value": 20,
-                "next_value_diff": -0.01,
+                "next_value_diff": 0,
             },
         },
         "armed": {
@@ -28,16 +28,16 @@ fake_data = {
             "value": "4",
         },
         "in_air": {
-            "value": True,
+            "value": False,
         },
         "gps": {
             "lat": {
                 "value": 1.1,
-                "next_value_diff": 0.001,
+                "next_value_diff": 0,
             },
             "lon": {
                 "value": 1.1,
-                "next_value_diff": -0.003,
+                "next_value_diff": 0,
             },
             "abs": {
                 "value": 10,
@@ -112,7 +112,7 @@ fake_data = {
             },
             "vl": {
                 "value": 12,
-                "next_value_diff": -0.007,
+                "next_value_diff": 0,
             },
         },
         "armed": {
@@ -122,16 +122,16 @@ fake_data = {
             "value": "4",
         },
         "in_air": {
-            "value": True,
+            "value": False,
         },
         "gps": {
             "lat": {
                 "value": -0.001,
-                "next_value_diff": 0.003,
+                "next_value_diff": 0,
             },
             "lon": {
                 "value": 15.0001,
-                "next_value_diff": -0.001,
+                "next_value_diff": 0,
             },
             "abs": {
                 "value": 10,
