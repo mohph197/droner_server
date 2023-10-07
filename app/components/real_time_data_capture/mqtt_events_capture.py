@@ -68,11 +68,14 @@ def start_real_time_data_capture():
     client.on_connect = _on_connect
     client.on_message = _on_message
 
-    client.connect(
-        app_config["env"]["MQTT_BROKER"],
-        app_config["env"]["MQTT_BROKER_PORT"],
-        keepalive=60,
-        bind_port=app_config["env"]["MQTT_BROKER_PORT"],
-    )
+    try:
+        client.connect(
+            app_config["env"]["MQTT_BROKER"],
+            app_config["env"]["MQTT_BROKER_PORT"],
+            keepalive=60,
+            bind_port=app_config["env"]["MQTT_BROKER_PORT"],
+        )
 
-    client.loop_start()
+        client.loop_start()
+    except:
+        print("Could not connect to MQTT Broker")

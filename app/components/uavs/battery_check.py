@@ -14,7 +14,7 @@ def check_battery_stats(uav):
 
     if voltage_level < 5.0:
         send_notification(uav, "battery_low", voltage_level)
-        mongodb["alers"].insert_one(
+        mongodb["alerts"].insert_one(
             {
                 "topic": uav,
                 "event": "battery_low",
